@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+
+$white: #FFF;
+$black: #000;
+$gray: #666666;
+$bg-color: rgb(185, 185, 185);
+
+$gray-palette: (
+    50: #FCFCFC,
+    100: #F7F7F7,
+    200: #F2F2F2,
+    300: #ECECEC,
+    400: #CBCBCB,
+    500: #ADADAD,
+    600: #838383,
+    700: #6E6E6E,
+    800: #4E4E4E,
+    900: #2C2C2C,
+    contrast: (
+        50: #FCFCFC,
+        100: #F7F7F7,
+        200: #F2F2F2,
+        300: #ECECEC,
+        400: #CBCBCB,
+        500: #ADADAD,
+        600: #838383,
+        700: #6E6E6E,
+        800: #4E4E4E,
+        900: #2C2C2C,
+    ) 
+);
+
+$orange-palette:(
+    50: #FEE8E6,
+    100: #FFCAB8,
+    200: #FFA78A,
+    300: #FF835A,
+    400: #FF6534,
+    500: #FF4605,
+    600: #FF4000,
+    700: #F13800,
+    800: #E32F00,
+    900: #CC1B00,
+    contrast:(
+        50: $black,
+        100: $black,
+        200: $black,
+        300: $black,
+        400: $white,
+        500: $white,
+        600: $white,
+        700: $white,
+        800: $white,
+        900: $white,
+        
+    )
+);
+
+$my-primary: mat.define-palette($orange-palette, 400, 200, 600);
+$my-accent: mat.define-palette($gray-palette, 100, 50, 200);
+
+$my-theme: mat.define-light-theme((
+    color: (
+        primary: $my-primary,
+        accent: $my-accent
+    )
+));
+
+@include mat.all-component-themes($my-theme);
+
+body{
+  background-color: #dfdfdf;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
