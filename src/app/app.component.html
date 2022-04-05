@@ -1,3 +1,7 @@
-<app-navigation></app-navigation>
-<app-home></app-home>
+<app-navigation [articleAmount]="this.cartLength"></app-navigation>
+<app-home 
+        [articles]="this.articles"
+        [categories]="this.categories"
+        (buyArticleEmitter)="addItemToCart($event)"
+        (consultCategory)="consultItems($event)"></app-home>
 <router-outlet></router-outlet>

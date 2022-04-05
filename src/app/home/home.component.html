@@ -1,6 +1,45 @@
 <div class="container">
+    
     <mat-card class="panel">
-        <h1>Welcome</h1>
+
+        <div class="contentContainer">
+
+            <div class="filters">
+                <h1>filters</h1>
+                <mat-radio-group
+                class="categorie-radio-group"
+                [(ngModel)]="this.selectedCategory"
+                >
+                    <mat-radio-button *ngFor="let categorie of this.categories" [value]="categorie.id" color="primary">{{categorie.name}}</mat-radio-button>
+                </mat-radio-group>
+                <button mat-raised-button color="primary" (click)="consultItems()">Consultar</button>
+            </div>
+
+            <div class="products">
+                <div *ngFor="let product of this.articles!" class="product">
+                    <div class="descriptionContainer">
+                        <div class="presentation">
+                            <h1>{{product.name}}</h1>
+                            <img [src]="sanitizeImage(this.product.path)" alt="IMAGEN">
+                        </div>
+                        <div class="description">
+                            <h2>Material: {{product.material}}</h2>
+                            <h3>Categoria: {{product. category}}</h3>
+                            <h3>Tamaño: {{product.dimensions}}</h3>
+                            <h3>Color: {{product.color}}</h3>
+                            <h3>Cuidados: {{product.care}}</h3>
+                            <h3>Precio: {{product.price}}</h3>
+                        </div>
+                    </div>
+                    
+                    
+                
+                    <button mat-raised-button color="primary" (click)="buyItem(product)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            
+        </div>
     </mat-card>
     
 </div>

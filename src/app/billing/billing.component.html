@@ -1,0 +1,35 @@
+<div class="container">
+    
+    <div class="products">
+        <mat-dialog-content>
+            <div *ngFor="let product of this.buyingList" class="product">
+                <div class="descriptionContainer">
+                    <div class="presentation">
+                        <h1>{{product.name}}</h1>
+                        <img [src]="sanitizeImage(this.product.path)" alt="IMAGEN">
+                    </div>
+                    <div class="description">
+                        <h2>Material: {{product.material}}</h2>
+                        <h3>Categoria: {{product. category}}</h3>
+                        <h3>Tamaño: {{product.dimensions}}</h3>
+                        <h3>Color: {{product.color}}</h3>
+                        <h3>Cuidados: {{product.care}}</h3>
+                        <h3>Precio: {{product.price}}</h3>
+                    </div>
+                </div>
+            </div>
+        </mat-dialog-content>   
+    </div>
+    <div class="billing">
+        <h1>Total: {{this.total}}₡</h1>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="ID de cliente" [(ngModel)]="this.clientId" required="true" type="number">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="buyItems()">Comprar</button>
+        </div>
+        
+        
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-dark bg-dark position-sticky top-0">
     <div class="container-fluid justify-content-arround">
         <div>
             <a class="navbar-brand align-middle">
@@ -8,7 +8,9 @@
         </div>
         <div>
             <a class="navbar-brand align-middle">
-                <mat-icon>shopping_cart</mat-icon>
+                <button mat-button (click)="openBilling()">
+                    <mat-icon [matBadge]="this.articleAmount" matBadgeSize="small" [matBadgeHidden]="this.showBadge">shopping_cart</mat-icon>
+                </button>
             </a>
         </div>
     </div>
